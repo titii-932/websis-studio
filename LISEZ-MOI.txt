@@ -1,0 +1,20 @@
+WEB'SIS STUDIO — mise en ligne sur GitHub Pages (gratuit)
+
+1. Sur GitHub, crée un nouveau dépôt PUBLIC (par exemple "websis-studio").
+2. Clique sur "uploading an existing file" et glisse TOUT le contenu de ce dossier :
+   index.html, le dossier images, et le fichier .nojekyll.
+   (Si .nojekyll n'apparaît pas, ce n'est pas grave : il est invisible sur certains ordinateurs.)
+3. Clique sur "Commit changes".
+4. Va dans Settings > Pages.
+   Source : "Deploy from a branch" — Branch : "main" — dossier : "/ (root)" — Save.
+5. Attends 1 à 2 minutes : ton site sera en ligne à l'adresse
+   https://titii-932.github.io/NOM-DU-DEPOT/
+
+CHANGER LA PHOTO DU BADGE
+Remplace simplement images/photo.jpg par ta nouvelle photo, avec exactement le même nom.
+Format conseillé : portrait, environ 630 x 705 pixels.
+
+POLICES
+Les polices PP Neue Machina, Druk Wide et Söhne Breit s'affichent seulement sur ton ordinateur,
+car elles y sont installées. Les visiteurs voient des polices de remplacement gratuites.
+Pour qu'ils voient les vraies, il faut acheter les licences web et ajouter les fichiers au site.
