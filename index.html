@@ -192,6 +192,17 @@ footer{position:relative;z-index:3;text-align:center;padding-block:40px 0;margin
 .shots div{aspect-ratio:16/10;max-width:100%;border-radius:12px;border:1px dashed var(--line);display:grid;place-items:center;font-family:var(--f-tech);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .shots .has-img{border:0;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.25)}
 .shots .has-img{position:relative}
+.shots.groups{grid-template-columns:1fr;gap:20px}
+.shots .shot-group,.shots .shot-row{aspect-ratio:auto;border:0;border-radius:0;place-items:initial;font-size:inherit;letter-spacing:normal;text-transform:none}
+.shots .shot-group{display:grid;gap:10px}
+.shot-group-title{margin:0;font-family:var(--f-tech);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.shots .shot-row{display:grid;gap:10px}
+.shots .shot-row.site{grid-template-columns:3fr 1fr}
+.shots .shot-row.site .has-img:first-child{aspect-ratio:16/10}
+.shots .shot-row.site .has-img:nth-child(2){aspect-ratio:auto}
+.shots .shot-row.phones{grid-template-columns:repeat(4,minmax(0,1fr))}
+.shots .shot-row.phones .has-img{aspect-ratio:700/1515;border-radius:10px}
+.shots .shot-row.phones .shot-cap,.shots .shot-row.site .has-img:nth-child(2) .shot-cap{display:none}
 .shots button{padding:0;margin:0;background:none;font:inherit;color:inherit;cursor:zoom-in;transition:transform .25s ease,box-shadow .25s ease}
 .shots button:hover{transform:translateY(-3px);box-shadow:0 16px 30px rgba(0,0,0,.35)}
 .lightbox{position:fixed;inset:0;z-index:40;display:grid;grid-template-columns:64px 1fr 64px;grid-template-rows:1fr auto;align-items:center;gap:12px;padding:24px 16px;background:rgba(8,3,6,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);animation:fade .25s ease both}
@@ -379,16 +390,17 @@ document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
      shots:['images/projets/team-permis-1.webp','images/projets/team-permis-2.webp'],
      tracks:['Identité « circuit » : damier, bandes de piste, typographie sport','Logo animé : la voiture quitte les lettres TP','Curseur en forme de voiture','Tarifs par onglets : boîte manuelle ou automatique','Financement : CPF et paiement en 3 fois','Avis Google en carrousel et carte intégrée'],
      url:'https://titii-932.github.io/auto-cole/'},
-    {kicker:'Projet 03 · SaaS en bêta',
+    {kicker:'Projet 03 · Application et site vitrine',
      name:'Ascora',
-     desc:"Un SaaS de gestion de clients pour les coachs sportifs : programmes, suivi, calendrier, finances et messagerie réunis au même endroit, au lieu de jongler entre WhatsApp, Notion et Google Agenda. Toujours en développement, il est déjà testé par de vrais clients.",
-     stack:'HTML · CSS · JavaScript (vanilla) · Supabase',
-     shots:['images/projets/ascora-1.webp','images/projets/ascora-2.webp','images/projets/ascora-3.webp','images/projets/ascora-4.webp'],
-     shotLabels:['Espace coach · Accueil','Espace coach · Calendrier','Espace client · Programme','Espace client · Tracker quotidien'],
-     tracks:['Deux espaces : coach et client','Programmes d\'entraînement et bibliothèque d\'exercices','Calendrier des séances','Finances avec export PDF','Nutrition assistée par IA et suivi des macros','Tracker quotidien avec graphiques sur 30 jours','Messagerie et notifications push'],
-     url:'#contact',internal:true,
-     cta:'Demander une démo →',
-     note:"Ascora est une application privée : pour protéger les données des coachs et de leurs clients, la démo se fait sur demande."},
+     desc:"Une application de coaching sportif et nutritionnel que j'ai conçue de A à Z. Le coach y gère tous ses clients : programmes, supersets, HIIT, Hyrox, nutrition, suivi de progression et messagerie. Le client suit ses séances guidées, remplit son suivi quotidien et reçoit des menus calculés à partir des objectifs de son coach. Le site vitrine présente l'appli aux coachs, de la découverte des formules jusqu'à la création de leur compte.",
+     stack:'HTML · CSS · JavaScript · Supabase · Stripe · Cloudflare · Brevo',
+     shots:['images/projets/ascora/site-ordinateur.webp','images/projets/ascora/site-telephone.webp','images/projets/ascora/appli-coach-accueil.webp','images/projets/ascora/appli-coach-evolution.webp','images/projets/ascora/appli-client-hyrox.webp','images/projets/ascora/appli-client-menu.webp','images/projets/ascora/appli-coach-programme.webp','images/projets/ascora/appli-coach-messagerie.webp','images/projets/ascora/appli-client-accueil.webp','images/projets/ascora/appli-client-suivi.webp'],
+     shotLabels:['Site vitrine · Ordinateur','Site vitrine · Téléphone','Appli coach · Accueil','Appli coach · Évolution d\'un client','Appli client · Séance Hyrox','Appli client · Menu du jour','Appli coach · Programme d\'un client','Appli coach · Messagerie','Appli client · Accueil','Appli client · Suivi quotidien'],
+     groups:[{title:'Le site',kind:'site',items:[0,1]},{title:"L'application",kind:'phones',items:[2,3,4,5]}],
+     tracks:['Appli coach et client, sur téléphone, tablette et ordinateur','Séances guidées : supersets, HIIT et Hyrox','Menus calculés à partir des objectifs du coach','Suivi de progression avec courbes, et messagerie intégrée','Site vitrine : 3 formules, de 24,99 € à 99,99 € par mois','Inscription en ligne avec paiement Stripe et création automatique du compte coach','Pages légales complètes : CGU, CGV, confidentialité et RGPD','Identité « tableau de score » : noir, blanc franc, vert progression et touches de violet'],
+     url:'https://ascora.be',
+     cta:'Voir le site ↗',
+     note:"Disponible aussi sur ordinateur. Version iPhone en cours de validation sur l'App Store. Toutes les captures utilisent des données fictives."},
     {kicker:'Projet 04 · Widget à télécharger',
      name:'Streak Chat',
      desc:"Un petit widget de bureau pour garder la motivation au quotidien : chaque journée de travail validée fait grandir ta série, avec un chat pour t'encourager.",
@@ -407,11 +419,20 @@ document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
     const ol=$('sheet-tracks');ol.textContent='';
     p.tracks.forEach((t,i)=>{const li=document.createElement('li');const n=document.createElement('span');n.textContent=String(i+1).padStart(2,'0');li.append(n,t);ol.append(li);});
     const sh=$('sheet-shots');sh.textContent='';
+    const mk=(k)=>{const b=document.createElement('button');b.type='button';b.className='has-img';b.setAttribute('aria-label','Agrandir : '+p.shotLabels[k]);b.addEventListener('click',()=>openLb(p,k));
+      const im=document.createElement('img');im.src=p.shots[k];im.alt=p.shotLabels[k]+' ('+p.name+')';im.loading='lazy';b.append(im);
+      const c=document.createElement('span');c.className='shot-cap';c.textContent=p.shotLabels[k];b.append(c);return b;};
+    sh.classList.toggle('groups',!!p.groups);
+    if(p.groups){sh.classList.remove('single');p.groups.forEach(g=>{const gr=document.createElement('div');gr.className='shot-group';
+        const t=document.createElement('p');t.className='shot-group-title';t.textContent=g.title;const row=document.createElement('div');row.className='shot-row '+g.kind;
+        g.items.forEach(k=>row.append(mk(k)));gr.append(t,row);sh.append(gr);});}
+    else{
     const n=(p.shots&&p.shots.length)||2;sh.classList.toggle('single',n===1);
     for(let k=0;k<n;k++){const has=p.shots&&p.shots[k];const box=document.createElement(has?'button':'div');if(has){box.type='button';box.setAttribute('aria-label','Agrandir : '+((p.shotLabels&&p.shotLabels[k])||('capture '+(k+1))));box.addEventListener('click',()=>openLb(p,k));}
       if(p.shots&&p.shots[k]){const im=document.createElement('img');im.src=p.shots[k];im.alt=(p.shotLabels&&p.shotLabels[k])?p.shotLabels[k]+' ('+p.name+')':'Capture d\'écran '+(k+1)+' du projet '+p.name;im.loading='lazy';box.className='has-img';box.append(im);
         if(p.shotLabels&&p.shotLabels[k]){const c=document.createElement('span');c.className='shot-cap';c.textContent=p.shotLabels[k];box.append(c);}}
       else box.textContent='Capture '+(k+1);sh.append(box);}
+    }
     const a=$('sheet-link');
     if(p.url){a.href=p.url;a.removeAttribute('aria-disabled');a.textContent=p.cta||'Voir le site ↗';
       if(p.internal){a.removeAttribute('target');a.onclick=()=>close();}else{a.target='_blank';a.onclick=null;}}
