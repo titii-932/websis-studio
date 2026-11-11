@@ -593,7 +593,10 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{
       n.innerHTML=v.toLocaleString('fr-FR')+(n.dataset.plus?'<sup>+</sup>':'');if(k<1)requestAnimationFrame(f)})(t0);
   });
 }),{threshold:.18});
-$$('.rv,.rv-img').forEach(el=>io.observe(el));
+$$('.rv').forEach(el=>io.observe(el));
+/* les images masquées (clip-path) ne sont pas détectées : on observe leur parent */
+const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.rv-img').forEach(i=>i.classList.add('vu'));io2.unobserve(e.target)}}),{threshold:.15});
+new Set($$('.rv-img').map(i=>i.parentElement)).forEach(p=>io2.observe(p));
 
 /* Galerie horizontale épinglée + parallaxe */
 const pin=$('.galerie-pin'), rail=$('.rail'), cpt=$('#cpt'), bgs=$$('[data-vitesse]');
