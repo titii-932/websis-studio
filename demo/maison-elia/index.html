@@ -589,7 +589,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{
   e.target.classList.add('vu');io.unobserve(e.target);
   e.target.querySelectorAll('[data-n]').forEach(n=>{
     const fin=+n.dataset.n, t0=performance.now();
-    (function f(t){const k=Math.min(1,(t-t0)/1600), v=Math.round(fin*(1-Math.pow(1-k,3)));
+    (function f(t){const k=Math.min(1,Math.max(0,(t-t0)/1600)), v=Math.round(fin*(1-Math.pow(1-k,3)));
       n.innerHTML=v.toLocaleString('fr-FR')+(n.dataset.plus?'<sup>+</sup>':'');if(k<1)requestAnimationFrame(f)})(t0);
   });
 }),{threshold:.18});
